@@ -1,4 +1,13 @@
 #!/bin/sh
+
+# Adds the Pivotal Tracker ID of the branch you're working on to the commit
+# message in the form [#XXXXXXX]
+#
+# To use:
+# 1. Clone this repo or copy the contents of this file.
+# 2. Make the file executable with `chmod a+x prepare-commit-msg`
+# 3. Move the file into /path/to/repo/.git/hooks
+
 ORIG_MSG_FILE="$1"
 TEMP=`mktemp /tmp/git-XXXXX`
 
