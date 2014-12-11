@@ -1,0 +1,9 @@
+#!/bin/sh
+ORIG_MSG_FILE="$1"
+TEMP=`mktemp /tmp/git-XXXXX`
+
+TRACKERID=`git rev-parse --abbrev-ref HEAD | grep -o '[0-9]*'`
+
+(echo "[#$TRACKERID]"; cat "$ORIG_MSG_FILE") > "$TEMP"
+cat "$TEMP" > "$ORIG_MSG_FILE"
+
